@@ -1,7 +1,14 @@
+require('./models/User');
+
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(authRouter);
 
 const mongoUri =
   'mongodb+srv://admin:Password1@cluster0-pbvql.mongodb.net/test?retryWrites=true&w=majority';
